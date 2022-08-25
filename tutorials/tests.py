@@ -3,8 +3,12 @@ from django.urls import reverse
 import pytest
 from tutorials.models import Tutorial
 
+@pytest.mark.parametrize("x, y", [(1, 0), (0, 1), (33, 0), (1000, 10), (-5, 5)])
+def test_xy(x, y):
+    assert x > y
+
 # Create your tests here.
-def test_homepage_access():
+'''def test_homepage_access():
     url = reverse('home')
     assert url == "/"
 
@@ -40,4 +44,4 @@ def another_tutorial(db):
     return tutorial
 
 def test_compare_tutorials(new_tutorial, another_tutorial):
-    assert new_tutorial.pk != another_tutorial.pk
+    assert new_tutorial.pk != another_tutorial.pk'''
